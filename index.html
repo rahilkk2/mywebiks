@@ -1,0 +1,1675 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ancient vs Modern Education Comparative Study</title>
+    <meta name="description"
+        content="An in-depth comparative study on Ancient and Modern Education Systems covering philosophies, pedagogies, and institutions." />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS  Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /*  ROOT TOKENS  */
+        :root {
+            --ancient-bg: #2c1a10;
+            --ancient-mid: #5c3317;
+            --ancient-light: #d4a96a;
+            --ancient-paper: #f5e6c8;
+            --ancient-accent: #8b2e2e;
+            --modern-bg: #030c1a;
+            --modern-mid: #061a36;
+            --modern-light: #0ff0fc;
+            --modern-steel: #1a3a6e;
+            --modern-accent: #00d4ff;
+        }
+
+        /*  RESET / BASE  */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0d0d0d;
+            color: #eee;
+            overflow-x: hidden;
+        }
+
+        /*  NAV  */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 2.5rem;
+            background: rgba(10, 10, 15, 0.82);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+        }
+
+        nav .brand {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--ancient-light), var(--modern-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            color: #ccc;
+            transition: color .3s;
+        }
+
+        nav ul a:hover {
+            color: var(--modern-accent);
+        }
+
+        /*  HERO  */
+        #hero {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .hero-ancient {
+            flex: 1;
+            background:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E"),
+                radial-gradient(ellipse at 30% 60%, #5c2c0e 0%, #2c1a10 60%, #1a0e08 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-ancient-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.22;
+            mix-blend-mode: luminosity;
+            z-index: 0;
+        }
+
+        .hero-ancient>*:not(.hero-ancient-img) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-ancient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 28px,
+                    rgba(212, 169, 106, 0.04) 28px, rgba(212, 169, 106, 0.04) 29px);
+        }
+
+        .hero-modern {
+            flex: 1;
+            background:
+                radial-gradient(ellipse at 70% 40%, #0a2a5e 0%, #030c1a 70%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-modern-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            mix-blend-mode: screen;
+            z-index: 0;
+        }
+
+        .hero-modern>*:not(.hero-modern-img) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-modern::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0, 255, 255, 0.04) 40px),
+                repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 255, 255, 0.04) 40px);
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 0 18px rgba(212, 169, 106, 0.4));
+        }
+
+        .hero-icon.modern {
+            filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.5));
+        }
+
+        .hero-title-ancient {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.6rem, 3vw, 2.6rem);
+            color: var(--ancient-light);
+            text-align: center;
+            line-height: 1.3;
+            text-shadow: 0 2px 20px rgba(160, 80, 0, 0.5);
+        }
+
+        .hero-title-modern {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.6rem, 3vw, 2.6rem);
+            color: var(--modern-accent);
+            text-align: center;
+            line-height: 1.3;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .hero-sub {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: .75;
+            text-align: center;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .hero-sub.ancient {
+            color: var(--ancient-paper);
+        }
+
+        .hero-sub.modern {
+            color: #a0e4ef;
+        }
+
+        .hero-badge {
+            margin-top: 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem 1.2rem;
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .badge-ancient {
+            background: rgba(139, 46, 46, 0.35);
+            border: 1px solid var(--ancient-accent);
+            color: var(--ancient-light);
+        }
+
+        .badge-modern {
+            background: rgba(0, 212, 255, 0.12);
+            border: 1px solid var(--modern-accent);
+            color: var(--modern-accent);
+            box-shadow: 0 0 14px rgba(0, 212, 255, 0.25);
+        }
+
+        .divider-bar {
+            width: 4px;
+            flex-shrink: 0;
+            background: linear-gradient(180deg, var(--ancient-light), var(--modern-accent));
+            position: relative;
+        }
+
+        /* center band overlay */
+        #hero-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        #hero-center h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--ancient-light), #fff, var(--modern-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        #hero-center .vs {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--ancient-light) 40%, var(--modern-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            line-height: 1;
+        }
+
+        /*  SECTION WRAPPER  */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-label {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            margin-bottom: .5rem;
+        }
+
+        .section-sub {
+            text-align: center;
+            font-size: .9rem;
+            opacity: .55;
+            margin-bottom: 3.5rem;
+        }
+
+        .gradient-line {
+            display: block;
+            height: 3px;
+            width: 80px;
+            margin: .8rem auto 0;
+            border-radius: 99px;
+            background: linear-gradient(90deg, var(--ancient-light), var(--modern-accent));
+        }
+
+        /*  MIND MAP  */
+        #mindmap {
+            background: #090d14;
+        }
+
+        .mindmap-root {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .mm-center {
+            background: linear-gradient(135deg, var(--ancient-mid), var(--modern-steel));
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 1rem 2.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #fff;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.15), 0 0 40px rgba(212, 169, 106, 0.1);
+        }
+
+        .mm-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .mm-pillar {
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            transition: transform .35s ease, box-shadow .35s ease;
+            cursor: default;
+        }
+
+        .mm-pillar:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+        }
+
+        .mm-pillar-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            padding: 1.1rem 1rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+        }
+
+        .pillar-philosophies .mm-pillar-head {
+            background: linear-gradient(135deg, #5c2c0e, #1a3a6e);
+            color: #fff;
+        }
+
+        .pillar-pedagogies .mm-pillar-head {
+            background: linear-gradient(135deg, #8b2e2e, #0d3b6e);
+            color: #fff;
+        }
+
+        .pillar-institutions .mm-pillar-head {
+            background: linear-gradient(135deg, #3b2000, #031a40);
+            color: #fff;
+        }
+
+        .mm-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .mm-side {
+            padding: 1.4rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+        }
+
+        .mm-side.ancient {
+            background: linear-gradient(160deg, #2c1810, #1e1108);
+            border-right: 1px solid rgba(212, 169, 106, 0.15);
+        }
+
+        .mm-side.modern {
+            background: linear-gradient(160deg, #060f20, #030812);
+        }
+
+        .mm-side-title {
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: .2rem;
+        }
+
+        .mm-side.ancient .mm-side-title {
+            color: var(--ancient-light);
+        }
+
+        .mm-side.modern .mm-side-title {
+            color: var(--modern-accent);
+        }
+
+        .mm-node {
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            font-size: .78rem;
+            line-height: 1.5;
+            padding: .5rem .7rem;
+            border-radius: 10px;
+            transition: background .25s;
+        }
+
+        .mm-side.ancient .mm-node {
+            background: rgba(212, 169, 106, 0.06);
+            color: var(--ancient-paper);
+            border: 1px solid rgba(212, 169, 106, 0.12);
+        }
+
+        .mm-side.ancient .mm-node:hover {
+            background: rgba(212, 169, 106, 0.14);
+        }
+
+        .mm-side.modern .mm-node {
+            background: rgba(0, 212, 255, 0.05);
+            color: #b8e8ef;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .mm-side.modern .mm-node:hover {
+            background: rgba(0, 212, 255, 0.13);
+        }
+
+        .mm-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .ancient .mm-dot {
+            background: var(--ancient-light);
+            box-shadow: 0 0 5px var(--ancient-light);
+        }
+
+        .modern .mm-dot {
+            background: var(--modern-accent);
+            box-shadow: 0 0 6px var(--modern-accent);
+        }
+
+        /* connector lines (SVG pseudo) */
+        .mm-connector {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+            height: 40px;
+            position: relative;
+        }
+
+        .mm-connector svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        /*  COMPARISON TABLE  */
+        #comparison {
+            background: #0a0e17;
+        }
+
+        .comp-table-wrap {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .88rem;
+        }
+
+        thead th {
+            padding: 1rem 1.4rem;
+            font-family: 'Cinzel', serif;
+            font-size: .85rem;
+            letter-spacing: 1.5px;
+            text-align: left;
+        }
+
+        thead .th-dim {
+            background: #111827;
+            color: #9ca3af;
+        }
+
+        thead .th-ancient {
+            background: linear-gradient(90deg, #3b1a0a, #5c2a10);
+            color: var(--ancient-light);
+            border-left: 3px solid var(--ancient-accent);
+        }
+
+        thead .th-modern {
+            background: linear-gradient(90deg, #061830, #0a2550);
+            color: var(--modern-accent);
+            border-left: 3px solid var(--modern-accent);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        tbody td {
+            padding: 1rem 1.4rem;
+            vertical-align: top;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        tbody .td-category {
+            color: #f8fafc;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            background: #0f172a;
+            border-right: 1px solid rgba(255, 255, 255, 0.07);
+            white-space: nowrap;
+        }
+
+        tbody .td-ancient {
+            background: rgba(92, 51, 23, 0.15);
+            border-left: 2px solid rgba(139, 46, 46, 0.3);
+        }
+
+        tbody .td-modern {
+            background: rgba(6, 24, 48, 0.3);
+            border-left: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .pill {
+            display: inline-block;
+            padding: .2rem .7rem;
+            border-radius: 999px;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: .3rem;
+        }
+
+        .pill-a {
+            background: rgba(139, 46, 46, 0.3);
+            color: var(--ancient-light);
+            border: 1px solid rgba(139, 46, 46, 0.5);
+        }
+
+        .pill-m {
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--modern-accent);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        /*  PHILOSOPHY CARDS  */
+        #philosophy {
+            background: #080b12;
+        }
+
+        .phil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .phil-card {
+            border-radius: 20px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: transform .35s, box-shadow .35s;
+        }
+
+        .phil-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .phil-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .4s;
+            z-index: 1;
+        }
+
+        .pc-ancient {
+            background: linear-gradient(145deg, #2c1810 0%, #1a0e08 100%);
+            border: 1px solid rgba(212, 169, 106, 0.2);
+        }
+
+        .pc-ancient::before {
+            background: radial-gradient(circle at 70% 0%, rgba(212, 169, 106, 0.08), transparent 60%);
+            opacity: 1;
+        }
+
+        .pc-modern {
+            background: linear-gradient(145deg, #070f20 0%, #030812 100%);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+        }
+
+        .pc-modern::before {
+            background: radial-gradient(circle at 30% 0%, rgba(0, 212, 255, 0.08), transparent 60%);
+            opacity: 1;
+        }
+
+        /* Card image banner */
+        .pc-img-banner {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            transition: transform .4s ease;
+            filter: brightness(0.85) saturate(1.1);
+        }
+
+        .phil-card:hover .pc-img-banner {
+            transform: scale(1.04);
+        }
+
+        .pc-img-wrap {
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .pc-body {
+            padding: 1.5rem 2rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pc-emoji {
+            font-size: 2.6rem;
+            margin-bottom: .8rem;
+            display: block;
+        }
+
+        .pc-tag {
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: .8rem;
+        }
+
+        .pc-h {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+        }
+
+        .pc-ancient .pc-tag,
+        .pc-ancient .pc-h {
+            color: var(--ancient-light);
+        }
+
+        .pc-modern .pc-tag,
+        .pc-modern .pc-h {
+            color: var(--modern-accent);
+        }
+
+        .pc-p {
+            font-size: .85rem;
+            line-height: 1.7;
+            color: #a0aec0;
+        }
+
+        /* IMAGE GALLERY STRIP */
+        #img-gallery {
+            background: #06090f;
+            padding: 4rem 2rem;
+        }
+
+        .gallery-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .45s ease, filter .45s ease;
+            filter: brightness(0.8) saturate(1.2);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(1) saturate(1.4);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: .8rem 1rem;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+            font-size: .75rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .gallery-item.ancient-img .gallery-caption {
+            color: var(--ancient-light);
+        }
+
+        .gallery-item.modern-img .gallery-caption {
+            color: var(--modern-accent);
+        }
+
+        /*  TIMELINE  */
+        #timeline {
+            background: #0d1117;
+        }
+
+        .tl-wrap {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: 0;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .tl-line {
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .tl-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--ancient-light), var(--modern-accent));
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .tl-col {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 0 1.5rem;
+        }
+
+        .tl-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            padding: 1.1rem 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .tl-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .tl-era {
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: .3rem;
+        }
+
+        .tl-ancient .tl-era {
+            color: var(--ancient-light);
+        }
+
+        .tl-modern .tl-era {
+            color: var(--modern-accent);
+        }
+
+        .tl-title {
+            font-family: 'Cinzel', serif;
+            font-size: .9rem;
+            color: #f1f5f9;
+            margin-bottom: .3rem;
+        }
+
+        .tl-desc {
+            font-size: .8rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* SECTION BANNER IMAGE */
+        .section-banner {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-banner img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.75) saturate(1.2);
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .section-banner:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.9) saturate(1.4);
+        }
+
+        .section-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(44, 24, 16, 0.55) 0%, transparent 40%, transparent 60%, rgba(3, 12, 26, 0.55) 100%);
+            pointer-events: none;
+        }
+
+        /* TIMELINE ITEM IMAGE */
+        .tl-img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 0.7rem;
+            display: block;
+            filter: brightness(0.82) saturate(1.15);
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .tl-item:hover .tl-img {
+            transform: scale(1.03);
+            filter: brightness(0.95) saturate(1.3);
+        }
+
+        /*  FOOTER  */
+        footer {
+            background: #060810;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            padding: 2rem;
+            font-size: .8rem;
+            color: #4a5568;
+        }
+
+        footer span {
+            background: linear-gradient(90deg, var(--ancient-light), var(--modern-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /*  SCROLL-TO-TOP  */
+        #scrollTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--modern-accent);
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--modern-accent);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s, transform .3s;
+            z-index: 99;
+            backdrop-filter: blur(8px);
+        }
+
+        #scrollTop.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #scrollTop:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 212, 255, 0.22);
+        }
+
+        /*  RESPONSIVE  */
+        @media (max-width: 768px) {
+            #hero {
+                grid-template-columns: 1fr;
+            }
+
+            .divider-bar {
+                width: 100%;
+                height: 4px;
+            }
+
+            .mm-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            #hero-center {
+                display: none;
+            }
+
+            .tl-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .tl-line {
+                display: none;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+
+        /* glowing pulse on the VS badge */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(212, 169, 106, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(0, 212, 255, 0.8), 0 0 70px rgba(212, 169, 106, 0.6);
+            }
+        }
+
+        #hero-center .vs {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        /* neon flicker for modern title */
+        @keyframes neon-flicker {
+
+            0%,
+            90%,
+            100% {
+                opacity: 1;
+            }
+
+            92% {
+                opacity: .7;
+            }
+
+            94% {
+                opacity: 1;
+            }
+
+            96% {
+                opacity: .8;
+            }
+        }
+
+        .hero-title-modern {
+            animation: neon-flicker 6s ease-in-out infinite;
+        }
+
+        /* floating icons in hero */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-icon {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--  NAV  -->
+    <nav>
+        <div class="brand">EDU NEXUS</div>
+        <ul>
+            <li><a href="#hero">Hero</a></li>
+            <li><a href="#mindmap">Mind Map</a></li>
+            <li><a href="#comparison">Comparison</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+        </ul>
+    </nav>
+
+    <!--  HERO  -->
+    <section id="hero" style="position:relative; padding-top:0;">
+
+        <!-- Ancient Side -->
+        <div class="hero-ancient" data-aos="fade-right" data-aos-duration="1000">
+            <img src="images/hero_ancient_gurukul.png" alt="Ancient Gurukul Education" class="hero-ancient-img">
+            <span class="hero-icon"></span>
+            <h2 class="hero-title-ancient">Ancient Education<br>System</h2>
+            <p class="hero-sub ancient">Rooted in nature, spirituality, and the sacred GuruShishya tradition. Knowledge
+                passed through oral wisdom and self-discipline.</p>
+            <span class="hero-badge badge-ancient"> Vedic Era 1500 BCE</span>
+        </div>
+
+        <!-- Divider bar -->
+        <div class="divider-bar" style="position:relative;"></div>
+
+        <!-- Modern Side -->
+        <div class="hero-modern" data-aos="fade-left" data-aos-duration="1000">
+            <img src="images/hero_modern_digital.png" alt="Modern Digital Education" class="hero-modern-img">
+            <span class="hero-icon modern"></span>
+            <h2 class="hero-title-modern">Modern Education<br>System</h2>
+            <p class="hero-sub modern">Driven by technology, standardisation, and data. Learning optimised through
+                digital infrastructure and global curricula.</p>
+            <span class="hero-badge badge-modern"> Digital Age 21st Century</span>
+        </div>
+
+        <!-- Center overlay badge -->
+        <div id="hero-center">
+            <h1>COMPARATIVE STUDY</h1>
+            <span class="vs">VS</span>
+        </div>
+    </section>
+
+
+    <!--  MIND MAP  -->
+    <section id="mindmap">
+        <h2 class="section-label" style="color:#f8fafc;" data-aos="fade-up">
+            Interactive Mind Map
+            <span class="gradient-line"></span>
+        </h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Three core pillars each split between Ancient
+            wisdom and Modern innovation</p>
+
+        <!-- Mind Map Banner -->
+        <div class="section-banner" data-aos="fade-up" data-aos-delay="150" style="max-width:1100px;">
+            <img src="images/mindmap_banner.png" alt="Education Mind Map Visualization" loading="lazy">
+            <div class="section-banner-overlay"></div>
+        </div>
+
+        <div class="mindmap-root" style="max-width:1100px; margin:0 auto;">
+
+            <!-- Center node -->
+            <div class="mm-center" data-aos="zoom-in" data-aos-delay="200">
+                &nbsp; Education Systems &nbsp;
+            </div>
+
+            <!-- SVG connector lines -->
+            <svg width="100%" height="50" viewBox="0 0 1100 50" style="max-width:1100px;" data-aos="fade-up"
+                data-aos-delay="250">
+                <line x1="550" y1="0" x2="185" y2="50" stroke="rgba(212,169,106,0.25)" stroke-width="1.5"
+                    stroke-dasharray="6,4" />
+                <line x1="550" y1="0" x2="550" y2="50" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"
+                    stroke-dasharray="6,4" />
+                <line x1="550" y1="0" x2="915" y2="50" stroke="rgba(0,212,255,0.25)" stroke-width="1.5"
+                    stroke-dasharray="6,4" />
+            </svg>
+
+            <!-- Three Pillars -->
+            <div class="mm-pillars">
+
+                <!-- Pillar 1: Philosophies -->
+                <div class="mm-pillar pillar-philosophies" data-aos="fade-right" data-aos-delay="300">
+                    <div class="mm-pillar-head">
+                        &nbsp; Philosophies
+                    </div>
+                    <div class="mm-split">
+                        <div class="mm-side ancient">
+                            <span class="mm-side-title ancient">Ancient</span>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span><strong>Holistic</strong> mind, body, soul unified</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Moksha & Dharma as life goals</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Intuition over rote memorisation</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Virtuous character building</span>
+                            </div>
+                        </div>
+                        <div class="mm-side modern">
+                            <span class="mm-side-title modern">Modern</span>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span><strong>Utilitarian</strong> career-focused outcomes</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>Critical thinking & reasoning</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>Empiricism & scientific method</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>Global citizenship values</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Pedagogies -->
+                <div class="mm-pillar pillar-pedagogies" data-aos="fade-up" data-aos-delay="400">
+                    <div class="mm-pillar-head">
+                        &nbsp; Pedagogies
+                    </div>
+                    <div class="mm-split">
+                        <div class="mm-side ancient">
+                            <span class="mm-side-title ancient">Ancient</span>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span><strong>Oral / Gurukul</strong> tradition</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Personalised guru mentorship</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Debate, shruti & smriti methods</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Nature immersion & meditation</span>
+                            </div>
+                        </div>
+                        <div class="mm-side modern">
+                            <span class="mm-side-title modern">Modern</span>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span><strong>Digital / E-Learning</strong> platforms</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>AI-powered adaptive learning</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>Standardised tests & rubrics</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>Collaborative project-based</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Institutions -->
+                <div class="mm-pillar pillar-institutions" data-aos="fade-left" data-aos-delay="500">
+                    <div class="mm-pillar-head">
+                        &nbsp; Institutions
+                    </div>
+                    <div class="mm-split">
+                        <div class="mm-side ancient">
+                            <span class="mm-side-title ancient">Ancient</span>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span><strong>Nature-based</strong> ashrams</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Nalanda & Takshashila universities</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Community-funded, caste-limited</span>
+                            </div>
+                            <div class="mm-node ancient">
+                                <span class="mm-dot ancient"></span>
+                                <span>Lifelong guru relationship</span>
+                            </div>
+                        </div>
+                        <div class="mm-side modern">
+                            <span class="mm-side-title modern">Modern</span>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span><strong>Formal infrastructure</strong> schools</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>State & private universities</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>Government-regulated, inclusive</span>
+                            </div>
+                            <div class="mm-node modern">
+                                <span class="mm-dot modern"></span>
+                                <span>MOOCs & global accessibility</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /mm-pillars -->
+        </div>
+    </section>
+
+
+    <!--  IMAGE GALLERY  -->
+    <section id="img-gallery" data-aos="fade-up">
+        <h2 class="section-label" style="color:#f8fafc;" data-aos="fade-up">
+            Visual Journey
+            <span class="gradient-line"></span>
+        </h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">A glimpse through the ages &mdash; from ancient
+            ashrams to digital frontiers</p>
+
+        <div class="gallery-strip">
+            <div class="gallery-item ancient-img" data-aos="zoom-in" data-aos-delay="100">
+                <img src="images/hero_ancient_gurukul.png" alt="Ancient Gurukul Scene" loading="lazy">
+                <span class="gallery-caption">Gurukul &mdash; Forest Ashram Education</span>
+            </div>
+            <div class="gallery-item ancient-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="images/guru_shishya.png" alt="Guru Shishya Tradition" loading="lazy">
+                <span class="gallery-caption">Guru-Shishya Parampara</span>
+            </div>
+            <div class="gallery-item ancient-img" data-aos="zoom-in" data-aos-delay="300">
+                <img src="images/nalanda_university.png" alt="Nalanda University" loading="lazy">
+                <span class="gallery-caption">Nalanda &mdash; World's First University</span>
+            </div>
+            <div class="gallery-item modern-img" data-aos="zoom-in" data-aos-delay="400">
+                <img src="images/hero_modern_digital.png" alt="Modern Digital Classroom" loading="lazy">
+                <span class="gallery-caption">Futuristic Digital Learning</span>
+            </div>
+            <div class="gallery-item modern-img" data-aos="zoom-in" data-aos-delay="500">
+                <img src="images/ai_learning_modern.png" alt="AI Powered Education" loading="lazy">
+                <span class="gallery-caption">AI-Powered Adaptive Education</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!--  COMPARISON TABLE  -->
+    <section id="comparison">
+        <h2 class="section-label" style="color:#f8fafc;" data-aos="fade-up">
+            Comparison Table
+            <span class="gradient-line"></span>
+        </h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Side-by-side analysis across key educational
+            dimensions</p>
+
+        <!-- Comparison Banner -->
+        <div class="section-banner" data-aos="fade-up" data-aos-delay="150">
+            <img src="images/comparison_banner.png" alt="Ancient vs Modern Education Comparison" loading="lazy">
+            <div class="section-banner-overlay"></div>
+        </div>
+
+        <div class="comp-table-wrap" style="max-width:1100px; margin:0 auto;" data-aos="fade-up" data-aos-delay="200">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="th-dim" style="width:180px;">Category</th>
+                        <th class="th-ancient"> Ancient Education</th>
+                        <th class="th-modern"> Modern Education</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-category"> Core Goal</td>
+                        <td class="td-ancient"><span class="pill pill-a">Holistic</span><br>Self-realisation, moksha,
+                            dharma, virtue, and spiritual liberation.</td>
+                        <td class="td-modern"><span class="pill pill-m">Utilitarian</span><br>Employability, critical
+                            thinking, innovation & economic productivity.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Teaching Method</td>
+                        <td class="td-ancient"><span class="pill pill-a">Oral</span><br>Shruti-smriti oral tradition,
+                            debates (shastrartha), and meditation-based learning.</td>
+                        <td class="td-modern"><span class="pill pill-m">Digital</span><br>Digital textbooks, AI tutors,
+                            MOOCs, interactive simulations & VR classrooms.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Setting</td>
+                        <td class="td-ancient"><span class="pill pill-a">Nature</span><br>Forest ashrams, river banks;
+                            nature immersion was central to learning.</td>
+                        <td class="td-modern"><span class="pill pill-m">Formal</span><br>Structured schools,
+                            universities, labs, and cloud-based virtual environments.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Teacher Role</td>
+                        <td class="td-ancient">Guru spiritual guide, moral authority, and father-figure to shishya.
+                        </td>
+                        <td class="td-modern">Facilitator content curator, assessor, and collaborative problem-solving
+                            coach.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Curriculum</td>
+                        <td class="td-ancient">Vedas, Upanishads, Ayurveda, arts, warfare, ethics self-selected by
+                            guru.</td>
+                        <td class="td-modern">National / globally standardised: STEM, humanities, social sciences,
+                            vocational tracks.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Access &amp; Equity</td>
+                        <td class="td-ancient">Restricted by caste and gender; largely brahminic and upper-varna.</td>
+                        <td class="td-modern">Constitutionally inclusive; universal right to education; gender-equal (in
+                            theory).</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Assessment</td>
+                        <td class="td-ancient">Continuous oral evaluation, real-life skill demonstration, guru approval.
+                        </td>
+                        <td class="td-modern">Formal written exams, standardised tests (JEE, SAT, PISA), GPA grading
+                            systems.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Knowledge Source</td>
+                        <td class="td-ancient">Sacred texts, guru's experiential wisdom, and nature observation.</td>
+                        <td class="td-modern">Peer-reviewed research, databases, Wikipedia, AI-generated content,
+                            open-access journals.</td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Values Emphasis</td>
+                        <td class="td-ancient">Ahimsa, satya, brahmacharya, discipline, service (seva).</td>
+                        <td class="td-modern">Innovation, entrepreneurship, collaboration, diversity, digital literacy.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-category"> Duration</td>
+                        <td class="td-ancient">1224 years in gurukul; lifelong pursuit of knowledge without fixed
+                            grades.</td>
+                        <td class="td-modern">Structured K-12 (14 years) + higher education; clearly defined degree
+                            pathways.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!--  PHILOSOPHY CARDS  -->
+    <section id="philosophy">
+        <h2 class="section-label" style="color:#f8fafc;" data-aos="fade-up">
+            Philosophical Pillars
+            <span class="gradient-line"></span>
+        </h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">The deeper ideological foundations of each system
+        </p>
+
+        <div class="phil-grid">
+            <!-- Ancient cards -->
+            <div class="phil-card pc-ancient" data-aos="fade-right" data-aos-delay="100">
+                <div class="pc-img-wrap">
+                    <img src="images/hero_ancient_gurukul.png" alt="Ancient Holistic Education" class="pc-img-banner">
+                </div>
+                <div class="pc-body">
+                    <p class="pc-tag">Ancient &mdash; Philosophy</p>
+                    <h3 class="pc-h">Holistic Worldview</h3>
+                    <p class="pc-p">Education was inseparable from spiritual practice. The student absorbed ethics,
+                        arts,
+                        sciences, and spirituality simultaneously &mdash; producing a balanced human, not just a skilled
+                        professional.</p>
+                </div>
+            </div>
+            <div class="phil-card pc-ancient" data-aos="fade-right" data-aos-delay="200">
+                <div class="pc-img-wrap">
+                    <img src="images/guru_shishya.png" alt="Guru Shishya Tradition" class="pc-img-banner">
+                </div>
+                <div class="pc-body">
+                    <p class="pc-tag">Ancient &mdash; Pedagogy</p>
+                    <h3 class="pc-h">Guru&ndash;Shishya Parampara</h3>
+                    <p class="pc-p">The guru&ndash;disciple tradition was a deeply personal, trust-based mentorship.
+                        Knowledge was
+                        transmitted through lived example, proximity, and intense devotion rather than textbooks.</p>
+                </div>
+            </div>
+            <div class="phil-card pc-ancient" data-aos="fade-right" data-aos-delay="300">
+                <div class="pc-img-wrap">
+                    <img src="images/nalanda_university.png" alt="Nalanda University" class="pc-img-banner">
+                </div>
+                <div class="pc-body">
+                    <p class="pc-tag">Ancient &mdash; Institution</p>
+                    <h3 class="pc-h">Forest Academies</h3>
+                    <p class="pc-p">Gurukuls at Nalanda, Takshashila, and Vikramashila were world-leading institutions
+                        where
+                        medicine, logic, astronomy, and philosophy were studied in harmony with nature.</p>
+                </div>
+            </div>
+
+            <!-- Modern cards -->
+            <div class="phil-card pc-modern" data-aos="fade-left" data-aos-delay="100">
+                <div class="pc-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=70"
+                        alt="Modern Education Philosophy" class="pc-img-banner">
+                </div>
+                <div class="pc-body">
+                    <p class="pc-tag">Modern &mdash; Philosophy</p>
+                    <h3 class="pc-h">Utilitarian Pragmatism</h3>
+                    <p class="pc-p">Rooted in Enlightenment rationalism, modern education prioritises measurable
+                        outcomes &mdash;
+                        skills, degrees, and career readiness &mdash; as the primary yardstick of educational success.
+                    </p>
+                </div>
+            </div>
+            <div class="phil-card pc-modern" data-aos="fade-left" data-aos-delay="200">
+                <div class="pc-img-wrap">
+                    <img src="images/ai_learning_modern.png" alt="AI Powered Learning" class="pc-img-banner">
+                </div>
+                <div class="pc-body">
+                    <p class="pc-tag">Modern &mdash; Pedagogy</p>
+                    <h3 class="pc-h">Tech-Augmented Learning</h3>
+                    <p class="pc-p">AI, adaptive algorithms, and immersive technologies enable personalised learning at
+                        scale. Platforms like Khan Academy, Coursera, and GPT tutors redefine how knowledge is accessed
+                        and
+                        retained.</p>
+                </div>
+            </div>
+            <div class="phil-card pc-modern" data-aos="fade-left" data-aos-delay="300">
+                <div class="pc-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=600&q=70"
+                        alt="Modern Universities" class="pc-img-banner">
+                </div>
+                <div class="pc-body">
+                    <p class="pc-tag">Modern &mdash; Institution</p>
+                    <h3 class="pc-h">Formal Infrastructure</h3>
+                    <p class="pc-p">Globally standardised universities, government regulation, and open-access MOOCs
+                        have
+                        democratised education &mdash; making knowledge available to billions regardless of geography.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--  TIMELINE  -->
+    <section id="timeline">
+        <h2 class="section-label" style="color:#f8fafc;" data-aos="fade-up">
+            Historical Timeline
+            <span class="gradient-line"></span>
+        </h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Key milestones in the evolution of education</p>
+
+        <div class="tl-wrap" style="max-width:900px; margin:0 auto;">
+
+            <!-- Ancient column -->
+            <div class="tl-col" data-aos="fade-right">
+                <div class="tl-item tl-ancient">
+                    <img src="images/vedic_gurukul_1500bce.png" alt="Vedic Gurukul System" class="tl-img"
+                        loading="lazy">
+                    <p class="tl-era">~1500 BCE</p>
+                    <p class="tl-title">Vedic Gurukul System</p>
+                    <p class="tl-desc">Students lived with gurus in forest ashrams, studying the four Vedas, philosophy,
+                        and arts over 1224 years.</p>
+                </div>
+                <div class="tl-item tl-ancient">
+                    <img src="images/takshashila_university.png" alt="Takshashila University" class="tl-img"
+                        loading="lazy">
+                    <p class="tl-era">~700 BCE</p>
+                    <p class="tl-title">Takshashila University</p>
+                    <p class="tl-desc">World's first university. Chanakya, Charaka, and Panini studied here offering
+                        medicine, law, grammar, and warfare.</p>
+                </div>
+                <div class="tl-item tl-ancient">
+                    <img src="images/nalanda_golden_age.png" alt="Nalanda Golden Age" class="tl-img" loading="lazy">
+                    <p class="tl-era">~400 CE</p>
+                    <p class="tl-title">Nalanda's Golden Age</p>
+                    <p class="tl-desc">Hosted 10,000+ students from across Asia. Buddhism, mathematics, astronomy, and
+                        logic were taught in vast monastic halls.</p>
+                </div>
+                <div class="tl-item tl-ancient">
+                    <img src="images/nalanda_university.png" alt="Decline of Gurukul Era" class="tl-img" loading="lazy">
+                    <p class="tl-era">~1200 CE</p>
+                    <p class="tl-title">Decline of Gurukul Era</p>
+                    <p class="tl-desc">Invasions led to the burning of Nalanda. Oral knowledge traditions fractured;
+                        manuscript culture began to emerge.</p>
+                </div>
+            </div>
+
+            <!-- Center divider -->
+            <div class="tl-line">
+                <div class="tl-dot" style="margin-top:1rem;"></div>
+                <div class="tl-dot"></div>
+                <div class="tl-dot"></div>
+                <div class="tl-dot"></div>
+            </div>
+
+            <!-- Modern column -->
+            <div class="tl-col" data-aos="fade-left">
+                <div class="tl-item tl-modern">
+                    <img src="images/colonial_education_1800s.png" alt="Colonial Education System" class="tl-img"
+                        loading="lazy">
+                    <p class="tl-era">1800s CE</p>
+                    <p class="tl-title">Colonial Education System</p>
+                    <p class="tl-desc">Macaulay's Minute (1835) replaced vernacular learning with English-medium
+                        schooling, planting the seeds of modern Indian education.</p>
+                </div>
+                <div class="tl-item tl-modern">
+                    <img src="images/india_modern_education_1947.png" alt="Independent India Education" class="tl-img"
+                        loading="lazy">
+                    <p class="tl-era">1947 CE</p>
+                    <p class="tl-title">Independent India's NEP</p>
+                    <p class="tl-desc">Post-independence reforms aimed at universal literacy; IITs (1951) and IIMs
+                        bridged India's technical and managerial talent gap.</p>
+                </div>
+                <div class="tl-item tl-modern">
+                    <img src="images/digital_revolution_education.png" alt="Digital Revolution in Education"
+                        class="tl-img" loading="lazy">
+                    <p class="tl-era">2000s CE</p>
+                    <p class="tl-title">Digital Revolution in Education</p>
+                    <p class="tl-desc">Internet, MOOC platforms (Coursera, edX), and smartphones democratised learning
+                        enabling 1 teacher to reach 1 million students.</p>
+                </div>
+                <div class="tl-item tl-modern">
+                    <img src="images/ai_nep2020_future.png" alt="AI and NEP 2020" class="tl-img" loading="lazy">
+                    <p class="tl-era">2020s CE</p>
+                    <p class="tl-title">AI & NEP 2020 Era</p>
+                    <p class="tl-desc">India's NEP 2020 aims to blend ancient wisdom (IKS) with modern skills. AI
+                        tutors, coding-from-grade-1, and skill-based learning define the future.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!--  FOOTER  -->
+    <footer>
+        <p>Crafted with for <span>Comparative Education Studies</span> &nbsp;|&nbsp; Ancient wisdom meets modern
+            innovation</p>
+        <p style="margin-top:.5rem; opacity:.5; font-size:.72rem;"> 2026 Edu Nexus Project For Academic & Research
+            Purposes</p>
+    </footer>
+
+
+    <!-- Scroll-to-top button -->
+    <button id="scrollTop" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})"></button>
+
+
+    <!--  SCRIPTS  -->
+    <script>
+        /*  AOS Init  */
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic',
+        });
+
+        /*  Scroll-to-top visibility  */
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('visible', window.scrollY > 400);
+        });
+
+        /*  Mind map node interactivity  */
+        document.querySelectorAll('.mm-node').forEach(node => {
+            node.addEventListener('click', () => {
+                node.style.transform = 'scale(1.05)';
+                setTimeout(() => node.style.transform = '', 300);
+            });
+        });
+
+        /*  Pillar hover glow effect  */
+        document.querySelectorAll('.mm-pillar').forEach((el, i) => {
+            const colors = [
+                ['rgba(212,169,106,0.25)', 'rgba(0,212,255,0.15)'],
+                ['rgba(139,46,46,0.3)', 'rgba(13,59,110,0.3)'],
+                ['rgba(92,51,23,0.3)', 'rgba(3,26,64,0.3)'],
+            ];
+            el.addEventListener('mouseenter', () => {
+                el.style.boxShadow = `0 20px 60px ${colors[i][0]}, 0 0 0 1px ${colors[i][1]}`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.boxShadow = '0 8px 40px rgba(0,0,0,0.4)';
+            });
+        });
+
+        /*  Smooth nav active state  */
+        const sections = document.querySelectorAll('section[id], footer');
+        const navLinks = document.querySelectorAll('nav ul a');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    navLinks.forEach(a => {
+                        a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--modern-accent)' : '';
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(s => observer.observe(s));
+
+        /*  Table row highlight   */
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.querySelectorAll('.td-ancient').forEach(td => td.style.borderLeftColor = 'rgba(212,169,106,0.6)');
+                row.querySelectorAll('.td-modern').forEach(td => td.style.borderLeftColor = 'rgba(0,212,255,0.5)');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.querySelectorAll('.td-ancient').forEach(td => td.style.borderLeftColor = '');
+                row.querySelectorAll('.td-modern').forEach(td => td.style.borderLeftColor = '');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
